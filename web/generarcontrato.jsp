@@ -194,14 +194,17 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
+                <!-- ROW 1  -->
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Generar Contrato</h2>
                     </div>
                 </div>
-                <!-- /. ROW  -->
-                 <hr />
-                 <div class="row">
+                <!-- /. ROW 1 -->
+                <hr />
+                <!-- ROW 2 -->
+                <div class="row">
+                    <!-- PANEL 1  -->
                     <div class="col-md-4 col-sm-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -231,9 +234,170 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Nuevo</button>
                                 </div>
                             </div>
-                            
+                            <!-- MODAL -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form role="form">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table>
+                                                <tbody>
+                                                        <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Dni*</label>
+                                                                <input class="form-control" placeholder="00000000" />
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Teléfono</label>
+                                                                <input class="form-control" placeholder="000-0000" />
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td rowspan="2" class="text-center">
+                                                            <img src="assets/img/find_user.png">
+                                                        </td>
+                                                        <!--<td rowspan="7">
+                                                            <canvas height="100px" width="100px"></canvas>
+                                                        </td>-->
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Nombres*</label>
+                                                                <input class="form-control"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Dirección*</label>
+                                                                <input class="form-control"/>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Apellido Paterno*</label>
+                                                                <input class="form-control"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Departamento*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Nacimiento*</label>
+                                                                <input type="date" class="form-control">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Apellido Materno*</label>
+                                                                <input class="form-control"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Provincia*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Correo*</label>
+                                                                <input class="form-control" placeholder="ejempo@mail.com" />
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Género*</label>
+                                                                <br>                                                            
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Masculino
+                                                                    </label>
+                                                                </div>
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Femenino
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Distrito*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Ruc</label>
+                                                                <input class="form-control"/>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <!--<button type="button" class="btn btn-primary">Guardar</button>-->
+                                            <button type="reset" class="btn btn-primary">Limpiar</button>
+                                            <button type="submit" class="btn btn-default">Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /. MODAL -->
                         </div>
                     </div> 
+                    <!-- /. PANEL 1  -->
+                    <!-- PANEL 2  -->
                     <div class="col-md-5 col-sm-5" >
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -320,168 +484,63 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </tbody>
                                 </table>
                             </div>
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form role="form">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <table>
-                                            <tbody>
-                                                    <tr>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Dni*</label>
-                                                            <input class="form-control" placeholder="00000000" />
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Teléfono</label>
-                                                            <input class="form-control" placeholder="000-0000" />
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td rowspan="2" class="text-center">
-                                                        <img src="assets/img/find_user.png">
-                                                    </td>
-                                                    <!--<td rowspan="7">
-                                                        <canvas height="100px" width="100px"></canvas>
-                                                    </td>-->
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Nombres*</label>
-                                                            <input class="form-control"/>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Dirección*</label>
-                                                            <input class="form-control"/>
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Apellido Paterno*</label>
-                                                            <input class="form-control"/>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Departamento*</label>
-                                                            <select class="form-control">
-                                                                <option>One Vale</option>
-                                                                <option>Two Vale</option>
-                                                                <option>Three Vale</option>
-                                                                <option>Four Vale</option>
-                                                            </select>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Nacimiento*</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Apellido Materno*</label>
-                                                            <input class="form-control"/>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Provincia*</label>
-                                                            <select class="form-control">
-                                                                <option>One Vale</option>
-                                                                <option>Two Vale</option>
-                                                                <option>Three Vale</option>
-                                                                <option>Four Vale</option>
-                                                            </select>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Correo*</label>
-                                                            <input class="form-control" placeholder="ejempo@mail.com" />
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Género*</label>
-                                                            <br>                                                            
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Masculino
-                                                                </label>
-                                                            </div>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Femenino
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Distrito*</label>
-                                                            <select class="form-control">
-                                                                <option>One Vale</option>
-                                                                <option>Two Vale</option>
-                                                                <option>Three Vale</option>
-                                                                <option>Four Vale</option>
-                                                            </select>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Ruc</label>
-                                                            <input class="form-control"/>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <!--<button type="button" class="btn btn-primary">Guardar</button>-->
-                                        <button type="reset" class="btn btn-primary">Limpiar</button>
-                                        <button type="submit" class="btn btn-default">Guardar</button>
-                                    </div>
-                                    </form>
-                                </div>
+                        </div>
+                    </div>
+                    <!-- /. PANEL 2  -->
+                </div>
+                <!-- /. ROW 2 -->
+                <!-- TABLA -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Artefactos
                             </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Username</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>          
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Larry</td>
+                                                <td>the Bird</td>
+                                                <td>@twitter</td>
+                                                <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row text-center ">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Añadir</button>
+                                </div>
+                           </div>
                         </div>
-                        </div>
-                    </div>  
-                 </div>
-                 <!-- /. ROW -->
+                    </div>
+                </div>
+
+                <!-- /. TABLA -->
           
     </div>
              <!-- /. PAGE INNER  -->
