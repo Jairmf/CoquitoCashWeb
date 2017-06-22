@@ -205,36 +205,61 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                 <!-- ROW 2 -->
                 <div class="row">
                     <!-- PANEL 1  -->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Cliente
                             </div>
                             <div class="panel-body">
-                                <div class="form-group">
-                                    <label>DNI*</label>
-                                    <input class="form-control"/>
+                                <label>Dni</label>
+                                <div class="form-group input-group">
+                                    
+                                    <input type="text" class="form-control"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
                                 </div>
-                                <div class="form-group">
-                                    <label>Nombres</label>
-                                    <input class="form-control" disabled   />
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Dni*</th><th>Nombres</th><th>Apellido Paterno</th><th>Apellido Materno</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <p class="form-control-static">-</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <p class="form-control-static">-</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <p class="form-control-static">-</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <p class="form-control-static">-</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="form-group">
-                                    <label>Apellido Paterno</label>
-                                    <input class="form-control" disabled/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Apellido Materno</label>
-                                    <input class="form-control" disabled/>
-                                </div>
-                                <br>
-
                                 <div class="row text-center">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-search"></i> Consultar</button>
+                                    <!--<button type="button" class="btn btn-default"><i class="fa fa-search"></i> Consultar</button>-->
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Nuevo</button>
                                 </div>
                             </div>
-                            <!-- MODAL -->
+                            <!-- MODAL CLIENTE -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -337,7 +362,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Correo*</label>
-                                                                <input class="form-control" placeholder="ejempo@mail.com" />
+                                                                <input class="form-control" placeholder="ejemplo@mail.com" />
                                                             </div>
                                                         </td>
 
@@ -393,8 +418,8 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </div>
                                 </div>
                             </div>
-                            <!-- /. MODAL -->
-                            <!-- MODAL 2 -->
+                            <!-- /. MODAL CLIENTE -->
+                            <!-- MODAL ARTEFACTO -->
                             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -404,17 +429,33 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                             <h4 class="modal-title" id="myModalLabel">Agregar Artefacto</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <table border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-group">
-                                                                <label>Monto1*</label>
+                                            <table class="table">
+                                                <div class="form-group">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <label>Monto*</label>
                                                                 <input class="form-control" />
-                                                                <br>
+                                                            </td>
+                                                            <td rowspan="5">
+                                                                <fieldset>
+                                                                    <div class="text-center">
+                                                                    <legend>Fotos</legend>
+                                                                        <img src="assets/img/find_user.png">
+                                                                            <br><br><hr>
+                                                                        <img src="assets/img/find_user.png">
+                                                                    </div>
+                                                                </fieldset>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <label>Descripción*</label>
                                                                 <input class="form-control" />
-                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <label>Conservación*</label>
                                                                 <select class="form-control">
                                                                     <option>One Vale</option>
@@ -422,7 +463,10 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                                     <option>Three Vale</option>
                                                                     <option>Four Vale</option>
                                                                 </select>
-                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <label>Tipo*</label>
                                                                 <select class="form-control">
                                                                     <option>One Vale</option>
@@ -430,7 +474,10 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                                     <option>Three Vale</option>
                                                                     <option>Four Vale</option>
                                                                 </select>
-                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <label>Marca*</label>
                                                                 <select class="form-control">
                                                                     <option>One Vale</option>
@@ -438,67 +485,25 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                                     <option>Three Vale</option>
                                                                     <option>Four Vale</option>
                                                                 </select>
-                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <label>Modelo*</label>
                                                                 <select class="form-control">
                                                                     <option>One Vale</option>
                                                                     <option>Two Vale</option>
                                                                     <option>Three Vale</option>
                                                                     <option>Four Vale</option>
-                                                                </select>                                                  
-                                                            </div>
-                                                        </td>
-                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                        <td>
-                                                            <td>
-
-                                                                <fieldset>
-                                                                    <legend>Fotos Artefactos</legend>
-                                                                    <img src="assets/img/find_user.png">
-                                                                </fieldset>
-                                                                <br>
-                                                                <label>Observación</label>
-                                                                <textarea class="form-control" rows="8"></textarea>   
-
+                                                                </select>
                                                             </td>
-                                                        </td>
-                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                        <td>
-                                                            <div class="form-group">
-                                                                <fieldset>
-                                                                    <legend>Nueva Marca</legend>
-                                                                    <label>Código</label>
-                                                                    <input class="form-control" disabled/>
-                                                                    <br>
-                                                                    <label>Nombre*</label>
-                                                                    <input class="form-control"/>
-                                                                    <br>
-                                                                     <button type="button"><i class="fa fa-plus"></i>Agregar</button>
-                                                                </fieldset>
-
-                                                                <fieldset>
-                                                                    <legend>Nueva Modelo</legend>
-                                                                     <label>Marca</label>
-                                                                    <select class="form-control">
-                                                                        <option>One Vale</option>
-                                                                        <option>Two Vale</option>
-                                                                        <option>Three Vale</option>
-                                                                        <option>Four Vale</option>
-                                                                    </select>
-                                                                    <br>
-                                                                    <label>Codigo</label>
-                                                                    <input class="form-control" placeholder="00000000" />
-                                                                    <br>
-                                                                    <label>Nombre</label>
-                                                                    <input class="form-control" placeholder="00000000" />
-                                                                    <br>
-                                                                     <button type="button"><i class="fa fa-plus"></i>Agregar</button>
-
-                                                                </fieldset>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
+                                                            <td>
+                                                                <label>Observación</label>
+                                                                <textarea class="form-control"></textarea>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </div>
                                             </table>
                                         </div>
                                         <div class="modal-footer">
@@ -511,100 +516,71 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </div>
                                 </div>
                             </div>
-                            <!-- /. MODAL 2 -->
+                            <!-- /. MODAL ARTEFACTO -->
+                            <!-- MODAL MARCA Y MODELO -->
+                            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form role="form">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">Marca y Modelo</h4>
+                                            </div>
+                                            <div class="modal-body" id="accordion">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">Nueva Marca</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                                                        <div class="panel-body">
+                                                            <div class="form-group">
+                                                                <label>Nombre*</label>
+                                                                <input class="form-control"/>
+                                                                <br>
+                                                                <button type="button" class="btn btn-default"><i class="fa fa-plus"></i> Agregar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Nuevo Modelo</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                                                        <div class="panel-body">
+                                                            <div class="form-group">
+                                                                <label>Marca</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                                <br>
+                                                                <label>Nombre</label>
+                                                                <input class="form-control"/>
+                                                                <br>
+                                                                <button type="button" class="btn btn-default"><i class="fa fa-plus"></i> Agregar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> 
+                            </div>
+                            <!-- /. MODAL MARCA Y MODELO -->
                         </div>
                     </div> 
                     <!-- /. PANEL 1  -->
-                    <!-- PANEL 2  -->
-                    <div class="col-md-5 col-sm-5" >
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Contrato
-                            </div>
-                            <div class="panel-body" >
-                                <table>
-                                    <tbody >
-                                        <tr>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Dias</label>
-                                                    <select class="form-control">
-                                                        <option>One Vale</option>
-                                                        <option>Two Vale</option>
-                                                        <option>Three Vale</option>
-                                                        <option>Four Vale</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Subtotal</label>
-                                                    <input class="form-control" disabled/>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <!--    <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>-->
-                                        <tr>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Mora</label>
-                                                    <input class="form-control" disabled/>
-                                                </div>
-                                            </td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Interes</label>
-                                                    <input class="form-control" disabled/>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Fecha Nacimiento</label>
-                                                    <input class="form-control" disabled/>
-                                                </div>
-                                            </td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Total</label>
-                                                    <input class="form-control" disabled/>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                       <tr>
-                                           <td colspan="8"><hr></td>
-                                       </tr>
-                                        <tr>
-                                            <td colspan="8">
-                                                <div class="form-group">
-                                                    <label>Monto Prestamo </label>
-                                                    <input class="form-control"/>
-                                                </div>
-                                                <br>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /. PANEL 2  -->
                 </div>
                 <!-- /. ROW 2 -->
                 <!-- TABLA -->
@@ -620,31 +596,25 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>CÓDIGO</th>
+                                                <th>DESCRIPCIÓN</th>
+                                                <th>MARCA</th>
+                                                <th>MODELO</th>
+                                                <th>CONSERVACIÓN</th>
+                                                <th>TASACIÓN</th>
+                                                <th>TIPO</th>
                                             </tr>
                                         </thead>
                                         <tbody>          
                                             <tr>
                                                 <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
                                             </tr>
                                         </tbody>
@@ -652,14 +622,90 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                 </div>
                                 <div class="row text-center ">
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Añadir</button>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal3"><i class="fa fa-plus" ></i>  Marca y Modelo</button>
                                 </div>
                            </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- /. TABLA -->
-          
+                <!-- ROW -->
+                <div class="row">
+                    <!-- PANEL 3  -->
+                    <div class="col-md-12" >
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Contrato
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Subtotal</th><th>Mora</th><th>Interés</th><th>Vencimiento</th><th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <p class="form-control-static">-</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <p class="form-control-static">-</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <p class="form-control-static">- %</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <p class="form-control-static">-/-/-</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <p class="form-control-static">-</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="form-group">
+                                                        <label>Días</label>
+                                                        <select class="form-control">
+                                                            <option>One Vale</option>
+                                                            <option>Two Vale</option>
+                                                            <option>Three Vale</option>
+                                                            <option>Four Vale</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td colspan="4">
+                                                    <label>Monto Préstamo* </label>
+                                                    <div class="form-group input-group">
+                                                        <span class="input-group-addon">S/.</span>
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-addon">.00</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row text-center ">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-save"></i> Generar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /. PANEL 3  -->
+                </div>
+                <!-- ROW -->
     </div>
              <!-- /. PAGE INNER  -->
             </div>
