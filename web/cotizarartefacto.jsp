@@ -208,21 +208,21 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                     </div>
                     <div class="panel-body">
                         <div class="row text-center ">
-                            <form role="form">
+                            <form role="form" method="post" action="redirect.jsp">
                                  <div class="radio-inline">
                                     <label>
-                                        <input class="form-control" placeholder="Artefacto" required="required"/>
+                                        <input name="txtartefacto" class="form-control" placeholder="Artefacto" required="required"/>
                                     </label>
                                 </div>
                                 <div class="radio-inline">
                                     <label>
-                                        <input class="form-control" placeholder="Marca"/>
+                                        <input name="txtmarca" class="form-control" placeholder="Marca"/>
                                     </label>
                                 </div>
                                 <div class="radio-inline">
-                                    <select class="form-control">
-                                        <option>OLX</option>
-                                        <option>Linio</option>
+                                    <select name="selweb" class="form-control">
+                                        <option value="1">OLX</option>
+                                        <option value="2">Linio</option>
                                     </select>
                                 </div>
                                  <div class="radio-inline">

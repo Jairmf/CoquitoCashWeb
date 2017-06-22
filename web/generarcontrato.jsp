@@ -394,6 +394,124 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                 </div>
                             </div>
                             <!-- /. MODAL -->
+                            <!-- MODAL 2 -->
+                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form role="form">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Agregar Artefacto</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <label>Monto1*</label>
+                                                                <input class="form-control" />
+                                                                <br>
+                                                                <label>Descripción*</label>
+                                                                <input class="form-control" />
+                                                                <br>
+                                                                <label>Conservación*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                                <br>
+                                                                <label>Tipo*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                                <br>
+                                                                <label>Marca*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>
+                                                                <br>
+                                                                <label>Modelo*</label>
+                                                                <select class="form-control">
+                                                                    <option>One Vale</option>
+                                                                    <option>Two Vale</option>
+                                                                    <option>Three Vale</option>
+                                                                    <option>Four Vale</option>
+                                                                </select>                                                  
+                                                            </div>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <td>
+
+                                                                <fieldset>
+                                                                    <legend>Fotos Artefactos</legend>
+                                                                    <img src="assets/img/find_user.png">
+                                                                </fieldset>
+                                                                <br>
+                                                                <label>Observación</label>
+                                                                <textarea class="form-control" rows="8"></textarea>   
+
+                                                            </td>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <fieldset>
+                                                                    <legend>Nueva Marca</legend>
+                                                                    <label>Código</label>
+                                                                    <input class="form-control" disabled/>
+                                                                    <br>
+                                                                    <label>Nombre*</label>
+                                                                    <input class="form-control"/>
+                                                                    <br>
+                                                                     <button type="button"><i class="fa fa-plus"></i>Agregar</button>
+                                                                </fieldset>
+
+                                                                <fieldset>
+                                                                    <legend>Nueva Modelo</legend>
+                                                                     <label>Marca</label>
+                                                                    <select class="form-control">
+                                                                        <option>One Vale</option>
+                                                                        <option>Two Vale</option>
+                                                                        <option>Three Vale</option>
+                                                                        <option>Four Vale</option>
+                                                                    </select>
+                                                                    <br>
+                                                                    <label>Codigo</label>
+                                                                    <input class="form-control" placeholder="00000000" />
+                                                                    <br>
+                                                                    <label>Nombre</label>
+                                                                    <input class="form-control" placeholder="00000000" />
+                                                                    <br>
+                                                                     <button type="button"><i class="fa fa-plus"></i>Agregar</button>
+
+                                                                </fieldset>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <!--<button type="button" class="btn btn-primary">Guardar</button>-->
+                                            <button type="reset" class="btn btn-primary">Limpiar</button>
+                                            <button type="submit" class="btn btn-default">Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /. MODAL 2 -->
                         </div>
                     </div> 
                     <!-- /. PANEL 1  -->
@@ -533,7 +651,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </table>
                                 </div>
                                 <div class="row text-center ">
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Añadir</button>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i> Añadir</button>
                                 </div>
                            </div>
                         </div>
