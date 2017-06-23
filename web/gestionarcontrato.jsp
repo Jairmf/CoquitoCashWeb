@@ -76,7 +76,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -113,7 +113,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -134,7 +134,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                             </c:when>
                             <c:when test="${fila.tipo=='TASADOR'}">
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -160,7 +160,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>

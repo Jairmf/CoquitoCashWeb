@@ -76,7 +76,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav navbar-collapse nav-second-level">
                                         <li>
                                             <a class="active-menu" href="mantenercliente.jsp">Mantener Cliente</a>
@@ -113,7 +113,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav navbar-collapse nav-second-level">
                                         <li>
                                             <a class="active-menu" href="mantenercliente.jsp">Mantener Cliente</a>
@@ -134,7 +134,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                             </c:when>
                             <c:when test="${fila.tipo=='TASADOR'}">
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav navbar-collapse nav-second-level">
                                         <li>
                                             <a class="active-menu" href="mantenercliente.jsp">Mantener Cliente</a>
@@ -160,7 +160,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav navbar-collapse nav-second-level">
                                         <li>
                                             <a class="active-menu" href="mantenercliente.jsp">Mantener Cliente</a>
@@ -263,28 +263,6 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     <tbody> 
                                         <tr>
                                             <td>1</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button></td>
-                                            <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i></button></td>
-                                            <td><button type="button" class="btn btn-default"><i class="fa fa-trash"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
                                             <td></td>
                                             <td></td>
                                             <td></td>

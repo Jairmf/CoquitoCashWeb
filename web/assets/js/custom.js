@@ -31,7 +31,12 @@
                 }
             });
             
-            var prueba = document.getElementById("txtprueba").value;
+            var art1 = document.getElementById("txtart1").value;
+            var art2 = document.getElementById("txtart2").value;
+            var art3 = document.getElementById("txtart3").value;
+            var art4 = document.getElementById("txtart4").value;
+            var art5 = document.getElementById("txtart5").value;
+            var art6 = document.getElementById("txtart6").value;
             var est1 = document.getElementById("txtest1").value;
             var est2 = document.getElementById("txtest2").value;
             var est3 = document.getElementById("txtest3").value;
@@ -45,22 +50,22 @@
                 element: 'morris-bar-chart',
                 data: [{
                     y: 'Electro',
-                    a: prueba
+                    a: art1
                 }, {
                     y: 'Móvil',
-                    a: 75
+                    a: art2
                 }, {
                     y: 'Audio',
-                    a: 50
+                    a: art3
                 }, {
                     y: 'Cómputo',
-                    a: 75
+                    a: art4
                 }, {
                     y: 'Accesorios',
-                    a: 50
+                    a: art5
                 }, {
                     y: 'Otros',
-                    a: 75
+                    a: art6
                 }],
                 xkey: 'y',
                 ykeys: ['a'],
@@ -92,9 +97,6 @@
                 }, {
                     label: "Inicial",
                     value: est6
-                }, {
-                    label: "Ninguno",
-                    value: 1
                 }],
                 resize: true
             });

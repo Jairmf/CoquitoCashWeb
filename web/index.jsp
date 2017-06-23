@@ -78,7 +78,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -116,7 +116,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -138,7 +138,7 @@
                             <c:when test="${fila.tipo=='TASADOR'}">
                                 <c:set var="x" scope="session" value="1"></c:set>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -165,7 +165,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-3x"></i> Cliente<span class="fa arrow"></span></a>
+                                    <a href="#">&nbsp;&nbsp;&nbsp;<i class="fa fa-male fa-3x"></i>&nbsp;&nbsp;&nbsp; Cliente<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
                                             <a href="mantenercliente.jsp">Mantener Cliente</a>
@@ -219,56 +219,103 @@
                  <!-- /. ROW  -->   
                  <hr /> 
                 <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
-                </span>
-                <div class="text-box" >
-                    <sql:query var="sqlEst1" dataSource="${cn}">
-                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST1";
-                    </sql:query>
-                    <c:forEach  var="fila" items="${sqlEst1.rows}">
-                        <p class="main-text">${fila.n} Nuevos</p>
-                    </c:forEach>
-                    <p class="text-muted">Contratos</p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
-                    <i class="fa fa-bars"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">10 Clientes</p>
-                    <p class="text-muted">Registrados</p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">5 Activos</p>
-                    <p class="text-muted">Contratos</p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-rocket"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">3 Vigentes</p>
-                    <p class="text-muted">Contratos</p>
-                </div>
-             </div>
-		     </div>
-			</div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                            <div class="panel panel-back noti-box">
+                                <span class="icon-box bg-color-blue set-icon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                                <div class="text-box" >
+                                    <sql:query var="sqlCont" dataSource="${cn}">
+                                         SELECT count(*) as n FROM contrato;
+                                    </sql:query>
+                                    <c:forEach  var="fila" items="${sqlCont.rows}">
+                                        <p class="main-text">${fila.n} Nuevos</p>
+                                    </c:forEach>
+                                    <p class="text-muted">Contratos</p>
+                                </div>
+                             </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-brown set-icon">
+                                <i class="fa fa-male"></i>
+                            </span>
+                            <div class="text-box" >
+                                <sql:query var="sqlClie" dataSource="${cn}">
+                                    SELECT count(*) as n FROM cliente as c, persona as p where p.id=c.persona_id;
+                                </sql:query>
+                                <c:forEach  var="fila" items="${sqlClie.rows}">
+                                   <p class="main-text">${fila.n} Registrados</p>
+                                </c:forEach>
+                                <p class="text-muted">Clientes</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-red set-icon">
+                                <i class="fa fa-ban"></i>
+                            </span>
+                            <div class="text-box" >
+                                <sql:query var="sqlVige" dataSource="${cn}">
+                                    SELECT count(*) as n FROM coquitocash.contrato where cod_estado_contrato="EST2";
+                                </sql:query>
+                                <c:forEach  var="fila" items="${sqlVige.rows}">
+                                   <p class="main-text">${fila.n} Inactivos</p>
+                                </c:forEach>
+                                <p class="text-muted">Contratos</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-green set-icon">
+                                <i class="fa fa-paper-plane"></i>
+                            </span>
+                            <div class="text-box" >
+                                <sql:query var="sqlVige" dataSource="${cn}">
+                                    SELECT count(*) as n FROM contrato where cod_estado_contrato="EST1";
+                                </sql:query>
+                                <c:forEach  var="fila" items="${sqlVige.rows}">
+                                   <p class="main-text">${fila.n} Vigentes</p>
+                                </c:forEach>
+                                <p class="text-muted">Contratos</p>
+                            </div>
+                         </div>
+                     </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-blue set-icon">
+                                <i class="fa fa-archive"></i>
+                            </span>
+                            <div class="text-box" >
+                                <sql:query var="sqlAlm" dataSource="${cn}">
+                                    SELECT count(*) as n FROM artefacto;
+                                </sql:query>
+                                <c:forEach  var="fila" items="${sqlAlm.rows}">
+                                   <p class="main-text">${fila.n} en Almacén</p>
+                                </c:forEach>
+                                <p class="text-muted">Artefactos</p>
+                            </div>
+                         </div>
+                     </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">           
+                        <div class="panel panel-back noti-box">
+                            <span class="icon-box bg-color-green set-icon">
+                                <i class="fa fa-building"></i>
+                            </span>
+                            <div class="text-box" >
+                                <sql:query var="sqlEmp" dataSource="${cn}">
+                                    SELECT count(*) as n FROM empleado
+                                </sql:query>
+                                <c:forEach  var="fila" items="${sqlEmp.rows}">
+                                   <p class="main-text">${fila.n} Activos</p>
+                                </c:forEach>
+                                <p class="text-muted">Empleados</p>
+                            </div>
+                         </div>
+                     </div>
+		</div>
                  <!-- /. ROW  -->
                     
     </div>
