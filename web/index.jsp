@@ -225,7 +225,12 @@
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">20 Nuevos</p>
+                    <sql:query var="sqlEst1" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST1";
+                    </sql:query>
+                    <c:forEach  var="fila" items="${sqlEst1.rows}">
+                        <p class="main-text">${fila.n} Nuevos</p>
+                    </c:forEach>
                     <p class="text-muted">Contratos</p>
                 </div>
              </div>

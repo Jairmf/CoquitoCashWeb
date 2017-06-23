@@ -14,7 +14,7 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
      <!-- MORRIS CHART STYLES-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+     <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -201,10 +201,76 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                 </div>
                  <!-- /. ROW  -->
                  <hr />
-             
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Estado de Contratos
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                            </div>
+                        </div>            
+                    </div>
+                          <div class="col-md-6 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Line Chart Example
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-line-chart"></div>
+                            </div>
+                        </div>            
+                    </div> 
+               </div>
+                 <!-- /. ROW  -->
                 <div class="row"> 
-                    
-                      
+                
+                    <sql:query var="sqlReporte" dataSource="${cn}">
+                         select count(*) as n from login
+                    </sql:query>
+                    <c:forEach  var="fila2" items="${sqlReporte.rows}">
+                        <input type="text" id="txtprueba" value="${fila2.n}" hidden="true">
+                    </c:forEach>
+                            
+                    <!-- ESTADOS CONTRATO -->
+                    <sql:query var="sqlEst1" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST1";
+                    </sql:query>
+                    <sql:query var="sqlEst2" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST2";
+                    </sql:query>
+                    <sql:query var="sqlEst3" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST3";
+                    </sql:query>
+                    <sql:query var="sqlEst4" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST4";
+                    </sql:query>
+                    <sql:query var="sqlEst5" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST5";
+                    </sql:query>
+                    <sql:query var="sqlEst6" dataSource="${cn}">
+                         SELECT count(*) as n FROM contrato where cod_estado_contrato="EST6";
+                    </sql:query>
+                    <c:forEach  var="fila" items="${sqlEst1.rows}">
+                        <input type="text" id="txtest1" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                    <c:forEach  var="fila" items="${sqlEst2.rows}">
+                        <input type="text" id="txtest2" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                    <c:forEach  var="fila" items="${sqlEst3.rows}">
+                        <input type="text" id="txtest3" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                    <c:forEach  var="fila" items="${sqlEst4.rows}">
+                        <input type="text" id="txtest4" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                    <c:forEach  var="fila" items="${sqlEst5.rows}">
+                        <input type="text" id="txtest5" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                    <c:forEach  var="fila" items="${sqlEst6.rows}">
+                        <input type="text" id="txtest6" value="${fila.n}" hidden="true">
+                    </c:forEach>
+                            
                 <div class="col-md-6 col-sm-12 col-xs-12">                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -213,9 +279,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                         <div class="panel-body">
                             <div id="morris-bar-chart"></div>
                         </div>
-                    </div>            
+                    </div>
                 </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">                     
+                <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Ingresos del Último Mes
@@ -228,31 +294,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                 
            </div>
                  <!-- /. ROW  -->
-                <div class="row">                     
-                      
-                               <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Estado de Contratos
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                    </div>            
-                </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Line Chart Example
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-line-chart"></div>
-                        </div>
-                    </div>            
-                </div> 
-                
-           </div>
-                 <!-- /. ROW  -->
+            
     </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -275,3 +317,5 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
    
 </body>
 </html>
+
+                 

@@ -30,44 +30,41 @@
                     $('div.sidebar-collapse').removeClass('collapse')
                 }
             });
-
+            
+            var prueba = document.getElementById("txtprueba").value;
+            var est1 = document.getElementById("txtest1").value;
+            var est2 = document.getElementById("txtest2").value;
+            var est3 = document.getElementById("txtest3").value;
+            var est4 = document.getElementById("txtest4").value;
+            var est5 = document.getElementById("txtest5").value;
+            var est6 = document.getElementById("txtest6").value;
             /*====================================
             MORRIS BAR CHART
          ======================================*/
             Morris.Bar({
                 element: 'morris-bar-chart',
                 data: [{
-                    y: 'diciembre',
-                    a: 100,
-                    b: 90
+                    y: 'Electro',
+                    a: prueba
                 }, {
-                    y: 'enero',
-                    a: 75,
-                    b: 65
+                    y: 'Móvil',
+                    a: 75
                 }, {
-                    y: 'febrero',
-                    a: 50,
-                    b: 40
+                    y: 'Audio',
+                    a: 50
                 }, {
-                    y: 'marzo',
-                    a: 75,
-                    b: 65
+                    y: 'Cómputo',
+                    a: 75
                 }, {
-                    y: 'abril',
-                    a: 50,
-                    b: 40
+                    y: 'Accesorios',
+                    a: 50
                 }, {
-                    y: 'mayo',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: 'junio',
-                    a: 100,
-                    b: 90
+                    y: 'Otros',
+                    a: 75
                 }],
                 xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
+                ykeys: ['a'],
+                labels: ['Artefactos'],
                 hideHover: 'auto',
                 resize: true
             });
@@ -79,22 +76,25 @@
                 element: 'morris-donut-chart',
                 data: [{
                     label: "Vigente",
-                    value: 12
+                    value: est1
+                },{
+                    label: "Finalizado",
+                    value: est2
                 },{
                     label: "Vigente con Deudas",
-                    value: 9
-                },{
-                    label: "Finalizado con Deudas",
-                    value: 2
+                    value: est3
                 }, {
-                    label: "Inicial",
-                    value: 10
-                }, {
-                    label: "Finalizado",
-                    value: 20
+                    label: "Expirado con Deudas",
+                    value: est4
                 }, {
                     label: "Expirado",
-                    value: 5
+                    value: est5
+                }, {
+                    label: "Inicial",
+                    value: est6
+                }, {
+                    label: "Ninguno",
+                    value: 1
                 }],
                 resize: true
             });
@@ -106,39 +106,59 @@
             Morris.Area({
                 element: 'morris-area-chart',
                 data: [{
-                    period: '07/05 - 13/05',
+                    period: '2015 Q1',
                     iphone: 6810,
                     ipad: 1914,
                     itouch: 2293
                 }, {
-                    period: '14/05 - 20/05',
+                    period: '2015 Q2',
                     iphone: 5670,
                     ipad: 4293,
                     itouch: 1881
                 }, {
-                    period: '21/05 - 27/05',
+                    period: '2015 Q3',
                     iphone: 4820,
                     ipad: 3795,
                     itouch: 1588
                 }, {
-                    period: '28/05 - 03/06',
+                    period: '2015 Q4',
                     iphone: 15073,
                     ipad: 5967,
                     itouch: 5175
                 }, {
-                    period: '04/06 - 10/06',
+                    period: '2016 Q1',
                     iphone: 10687,
                     ipad: 4460,
                     itouch: 2028
                 }, {
-                    period: '11/06 - 17/06',
+                    period: '2016 Q2',
+                    iphone: 8432,
+                    ipad: 5713,
+                    itouch: 1791
+                }, {
+                    period: '2016 Q3',
+                    iphone: 8432,
+                    ipad: 5713,
+                    itouch: 1791
+                }, {
+                    period: '2016 Q4',
+                    iphone: 8432,
+                    ipad: 5713,
+                    itouch: 1791
+                }, {
+                    period: '2017 Q1',
+                    iphone: 8432,
+                    ipad: 5713,
+                    itouch: 1791
+                }, {
+                    period: '2017 Q2',
                     iphone: 8432,
                     ipad: 5713,
                     itouch: 1791
                 }],
                 xkey: 'period',
                 ykeys: ['iphone', 'ipad', 'itouch'],
-                labels: ['iPhone', 'iPad', 'iPod Touch'],
+                labels: ['Artefactos', 'Contratos', 'Clientes'],
                 pointSize: 2,
                 hideHover: 'auto',
                 resize: true
