@@ -196,12 +196,8 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                         </c:choose>
                     </c:forEach>
                     <!-- ... JSTL block ... -->
-                    
-                    	
                 </ul>
-               
             </div>
-            
         </nav>  
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
@@ -290,7 +286,17 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                 </c:forEach>
                 <!-- /. TIPOS ARTEFACTO -->
                 <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">                     
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Artefactos por Tipo
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Estado de Contratos
@@ -300,39 +306,6 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                             </div>
                         </div>            
                     </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">                     
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Balance Mensual de Contratos
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">                     
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Line Chart Example
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-line-chart"></div>
-                            </div>
-                        </div>            
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Ingresos del Último Mes
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>            
-                    </div> 
                 </div>
                  <!-- /. ROW  -->
             

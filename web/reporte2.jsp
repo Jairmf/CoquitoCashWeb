@@ -209,80 +209,29 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <!-- ROW 2 -->
                 <div class="row">
-                    <!-- PANEL 1  -->
-                    <div class="col-md-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Contrato
+                                Line Chart Example
                             </div>
                             <div class="panel-body">
-                                <label>Código</label>
-                                <div class="form-group input-group">
-                                    <input type="text" class="form-control"/>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Dni*</th><th>Nombres</th><th>Apellido Paterno</th><th>Apellido Materno</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-group">
-                                                    <p class="form-control-static">-</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <p class="form-control-static">-</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <p class="form-control-static">-</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <p class="form-control-static">-</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row text-center">
-                                    <!--<button type="button" class="btn btn-default"><i class="fa fa-search"></i> Consultar</button>-->
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-file"></i>&nbsp;&nbsp;Ver</button>
-                                </div>
+                                <div id="morris-line-chart"></div>
                             </div>
-                            <!-- MODAL PDF -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <iframe style="height: 500px; width: 100%;"src="assets/files/CONT001.pdf"></iframe>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>            
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Ingresos del Último Mes
                             </div>
-                            <!-- /. MODAL PDF -->
-                        </div>
+                            <div class="panel-body">
+                                <div id="morris-area-chart"></div>
+                            </div>
+                        </div>            
                     </div> 
-                    <!-- /. PANEL 1  -->
                 </div>
+                
                 <!-- /. ROW 2 -->
              <!-- /. PAGE INNER  -->
             </div>
