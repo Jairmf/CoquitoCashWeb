@@ -271,6 +271,18 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Nuevo</button>
                                 </div>
                             </div>
+                            <!-- JSTL BLOCK -->
+                            <sql:query var="sqlDep" dataSource="${cn}">
+                                select * from departamento
+                            </sql:query>
+                            <sql:query var="sqlPro" dataSource="${cn}">
+                                select * from provincia
+                            </sql:query>
+                            <sql:query var="sqlDis" dataSource="${cn}">
+                                select * from distrito where provincia_id="PROVI08"
+                            </sql:query>
+                            
+                            <!-- /. JSTL BLOCK -->
                             <!-- MODAL CLIENTE -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -287,14 +299,14 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Dni*</label>
-                                                                <input class="form-control" placeholder="00000000" />
+                                                                <input class="form-control" required="required"/>
                                                             </div>
                                                         </td>
                                                         <td>&nbsp;&nbsp;&nbsp;</td>
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Teléfono</label>
-                                                                <input class="form-control" placeholder="000-0000" />
+                                                                <input class="form-control" placeholder="+51" />
                                                             </div>
                                                         </td>
                                                         <td>&nbsp;&nbsp;&nbsp;</td>
@@ -310,14 +322,14 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Nombres*</label>
-                                                                <input class="form-control"/>
+                                                                <input class="form-control" required="required"/>
                                                             </div>
                                                         </td>
                                                         <td>&nbsp;&nbsp;&nbsp;</td>
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Dirección*</label>
-                                                                <input class="form-control"/>
+                                                                <input class="form-control" required="required"/>
                                                             </div>
                                                         </td>
 
@@ -327,7 +339,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Apellido Paterno*</label>
-                                                                <input class="form-control"/>
+                                                                <input class="form-control" required="required"/>
                                                             </div>
                                                         </td>
                                                         <td>&nbsp;&nbsp;&nbsp;</td>
@@ -335,10 +347,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <div class="form-group">
                                                                 <label>Departamento*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlDep.rows}">
+                                                                        <option value="${fila.id_dep}">${fila.nombre}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -346,7 +357,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Nacimiento*</label>
-                                                                <input type="date" class="form-control">
+                                                                <input type="date" class="form-control" required="required">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -355,7 +366,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Apellido Materno*</label>
-                                                                <input class="form-control"/>
+                                                                <input class="form-control" required="required"/>
                                                             </div>
                                                         </td>
                                                         <td>&nbsp;&nbsp;&nbsp;</td>
@@ -363,10 +374,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <div class="form-group">
                                                                 <label>Provincia*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlPro.rows}">
+                                                                        <option value="${fila.id}">${fila.nombre}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -374,7 +384,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <td>
                                                             <div class="form-group">
                                                                 <label>Correo*</label>
-                                                                <input class="form-control" placeholder="ejemplo@mail.com" />
+                                                                <input class="form-control" placeholder="ejemplo@mail.com" required="required"/>
                                                             </div>
                                                         </td>
 
@@ -402,10 +412,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <div class="form-group">
                                                                 <label>Distrito*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlDis.rows}">
+                                                                        <option value="${fila.id}">${fila.nombre}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -431,6 +440,19 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                 </div>
                             </div>
                             <!-- /. MODAL CLIENTE -->
+                            <!-- JSTL BLOCK -->
+                            <sql:query var="sqlCon" dataSource="${cn}">
+                                select * from esta_conserva
+                            </sql:query>
+                            <sql:query var="sqlTip" dataSource="${cn}">
+                                select * from tipo_artefacto
+                            </sql:query>
+                            <sql:query var="sqlMar" dataSource="${cn}">
+                                select * from marca
+                            </sql:query>
+                            <sql:query var="sqlMod" dataSource="${cn}">
+                                select * from modelo
+                            </sql:query>
                             <!-- MODAL ARTEFACTO -->
                             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -447,7 +469,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <tr>
                                                             <td>
                                                                 <label>Monto*</label>
-                                                                <input class="form-control" />
+                                                                <input class="form-control" required="required"/>
                                                             </td>
                                                             <td rowspan="5">
                                                                 <fieldset>
@@ -463,17 +485,16 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                         <tr>
                                                             <td>
                                                                 <label>Descripción*</label>
-                                                                <input class="form-control" />
+                                                                <input class="form-control" required="required"/>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <label>Conservación*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlCon.rows}">
+                                                                        <option value="${fila.id}">${fila.nombre}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -481,10 +502,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <td>
                                                                 <label>Tipo*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlTip.rows}">
+                                                                        <option value="${fila.id}">${fila.tipo}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -492,10 +512,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <td>
                                                                 <label>Marca*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlMar.rows}">
+                                                                        <option value="${fila.id}">${fila.marca}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </td>
                                                         </tr>
@@ -503,10 +522,9 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <td>
                                                                 <label>Modelo*</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlMod.rows}">
+                                                                        <option value="${fila.id}">${fila.modelo}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                             </td>
                                                             <td>
@@ -567,13 +585,12 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                                             <div class="form-group">
                                                                 <label>Marca</label>
                                                                 <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
+                                                                    <c:forEach  var="fila" items="${sqlMar.rows}">
+                                                                        <option value="${fila.id}">${fila.marca}</option>
+                                                                    </c:forEach>
                                                                 </select>
                                                                 <br>
-                                                                <label>Nombre</label>
+                                                                <label>Nombre*</label>
                                                                 <input class="form-control"/>
                                                                 <br>
                                                                 <button type="button" class="btn btn-default"><i class="fa fa-plus"></i> Agregar</button>
@@ -590,6 +607,27 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                 </div> 
                             </div>
                             <!-- /. MODAL MARCA Y MODELO -->
+                            <!-- MODAL CONFIRMAR -->
+                            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form role="form">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirmación</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label>¿Desea continuar con el procedimiento?</label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                            <button type="submit" class="btn btn-danger">Si</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /. MODAL CONFIRMAR -->
                         </div>
                     </div> 
                     <!-- /. PANEL 1  -->
@@ -710,7 +748,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                                     </table>
                                 </div>
                                 <div class="row text-center ">
-                                    <button type="button" class="btn btn-primary"><i class="fa fa-save"></i> Generar</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4"><i class="fa fa-save"></i>&nbsp;&nbsp;Generar</button>
                                 </div>
                             </div>
                         </div>

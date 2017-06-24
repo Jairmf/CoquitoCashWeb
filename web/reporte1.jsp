@@ -307,8 +307,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                         </div>            
                     </div>
                 </div>
-                 <!-- /. ROW  -->
-            
+                 <!-- /. ROW  -->            
                 </div>
              <!-- /. PAGE INNER  -->
             </div>

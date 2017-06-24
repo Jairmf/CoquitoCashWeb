@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
@@ -207,10 +207,109 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                      <h2>Reporte 2</h2>
                     </div>
                 </div>
-                <!-- /. ROW  -->
-                <hr />
+                 <!-- /. ROW  -->
+                 <hr />
+                <!-- ESTADOS CONTRATO -->
+                <sql:query var="sqlEst1" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST1";
+                </sql:query>
+                <sql:query var="sqlEst2" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST2";
+                </sql:query>
+                <sql:query var="sqlEst3" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST3";
+                </sql:query>
+                <sql:query var="sqlEst4" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST4";
+                </sql:query>
+                <sql:query var="sqlEst5" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST5";
+                </sql:query>
+                <sql:query var="sqlEst6" dataSource="${cn}">
+                     SELECT count(*) as n FROM contrato where cod_estado_contrato="EST6";
+                </sql:query>
+                <c:forEach  var="fila" items="${sqlEst1.rows}">
+                    <input type="text" id="txtest1" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlEst2.rows}">
+                    <input type="text" id="txtest2" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlEst3.rows}">
+                    <input type="text" id="txtest3" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlEst4.rows}">
+                    <input type="text" id="txtest4" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlEst5.rows}">
+                    <input type="text" id="txtest5" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlEst6.rows}">
+                    <input type="text" id="txtest6" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <!-- /. ESTADOS CONTRATO -->
+                <!-- TIPOS ARTEFACTO -->
+                <sql:query var="sqlArt1" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA01";
+                </sql:query>
+                <sql:query var="sqlArt2" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA02";
+                </sql:query>
+                <sql:query var="sqlArt3" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA03";
+                </sql:query>
+                <sql:query var="sqlArt4" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA04";
+                </sql:query>
+                <sql:query var="sqlArt5" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA05";
+                </sql:query>
+                <sql:query var="sqlArt6" dataSource="${cn}">
+                    select count(*) as n from artefacto where tipo_artefacto_id="TA06";
+                </sql:query>
+                <c:forEach  var="fila" items="${sqlArt1.rows}">
+                    <input type="text" id="txtart1" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlArt2.rows}">
+                    <input type="text" id="txtart2" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlArt3.rows}">
+                    <input type="text" id="txtart3" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlArt4.rows}">
+                    <input type="text" id="txtart4" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlArt5.rows}">
+                    <input type="text" id="txtart5" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <c:forEach  var="fila" items="${sqlArt6.rows}">
+                    <input type="text" id="txtart6" value="${fila.n}" hidden="true">
+                </c:forEach>
+                <!-- /. TIPOS ARTEFACTO -->
+                <div class="row" hidden="true">
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Artefactos por Tipo
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Estado de Contratos
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
                 <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">                     
+                    <div class="col-md-12 col-sm-12 col-xs-12">                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Line Chart Example
@@ -220,7 +319,7 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                             </div>
                         </div>            
                     </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Ingresos del Último Mes
@@ -231,8 +330,8 @@ font-size: 16px;">  <label style="text-transform: uppercase">${sessionScope.usua
                         </div>            
                     </div> 
                 </div>
-                
-                <!-- /. ROW 2 -->
+            
+                </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
