@@ -44,20 +44,32 @@
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-				</li>
+                    <li class="text-center">
+                        <sql:setDataSource var="cn"
+                            driver="com.mysql.jdbc.Driver"
+                            url="jdbc:mysql://localhost:3306/coquitocash"
+                            user="root" 
+                            password="database"/>
+                        <sql:query var="sqlFoto" dataSource="${cn}">
+                            select p.foto from login as l, empleado as e, persona as p where p.id=e.persona_id and e.login_usuario=l.usuario and l.usuario="${sessionScope.usuario}"
+                        </sql:query>
+                        <c:forEach  var="fila" items="${sqlFoto.rows}">
+                            <c:choose>
+                                <c:when test="${fila.foto != null}">
+                                    <img src="${fila.foto}" class="user-image img-responsive"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </li>
                     <li>
                         <a class="active-menu"  href="index.jsp"><i class="fa fa-dashboard fa-3x"></i> Tablero Administrativo</a>
                     </li>
                     
                     <!-- ... JSTL block ... -->
                     
-                    <sql:setDataSource var="cn"
-                                        driver="com.mysql.jdbc.Driver"
-                                        url="jdbc:mysql://localhost:3306/coquitocash"
-                                        user="root" 
-                                        password="database"/>
                      <sql:query var="sqlLogin" dataSource="${cn}">
                          select tipo from login where usuario="${sessionScope.usuario}" and contraseña="${sessionScope.clave}"
                      </sql:query>
