@@ -59,8 +59,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
-                    </li>
-				
+                    </li>	
                     <li>
                         <a href="index.jsp"><i class="fa fa-dashboard fa-3x"></i> Tablero Administrativo</a>
                     </li>
@@ -213,7 +212,14 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                 </div>
                 <!-- /. ROW  -->
                  <hr />
-                 
+               
+                <!-- QUERY ESTADOS CONTRATOS -->
+                <sql:query var="sqlEstCon" dataSource="${cn}">
+                    select * from estado_contrato
+                </sql:query>
+                <sql:query var="sqlCon" dataSource="${cn}">
+                    select * from contrato
+                </sql:query>
                 <!-- <div class="row"> -->
                     
                     <!-- <div class="col-md-12" > -->
@@ -223,31 +229,35 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                             </div>
                             <div class="panel-body" >
                                 <table class="table">
-                                    <tbody >
+                                    <tbody>
                                     	<div class="table-responsive">
                                     		<tr>
                                                 <td colspan="2">
                                                     <div class="form-group">
                                                         <label>Estado</label>
-		                                                <select class="form-control">
-		                                                <option>One Vale</option>
-		                                                <option>Two Vale</option>
-		                                                <option>Three Vale</option>
-		                                                <option>Four Vale</option>
-		                                                </select>
+                                                        <select id="selEstado" class="form-control">
+                                                            <c:forEach  var="fila" items="${sqlEstCon.rows}">
+                                                                <option value="${fila.id}">${fila.estado}</option>
+                                                            </c:forEach>
+                                                        </select>
                                                     </div>
                                                 </td>
                                                 <td colspan="2">
                                                     <div class="form-group">
                                                         <label>Fecha</label>
-	                                                	<input class="form-control" type="date" />
-	                                                	
+                                                        <input id="dcInicio"class="form-control" type="date" />
                                                     </div>
                                                 </td>
                                                 <td colspan="2">
                                                     <div class="row text-center">
-                                                            <br>
-                                                            <button type="button" class="btn btn-default"><i class="fa fa-search"></i> Consultar</button>
+                                                            <br/>
+                                                            <button type="button" onclick="consultarCont()" class="btn btn-default"><i class="fa fa-search"></i> Consultar</button>
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div class="row text-center">
+                                                            <br/>
+                                                            <button type="button" onclick="verTodosCont()" class="btn btn-default"><i class="fa fa-list"></i></button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -262,34 +272,11 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                 Contratos
                             </div>
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>CÓDIGO</th>
-                                                <th>ESTADO</th>
-                                                <th>PRESTAMO</th>
-                                                <th>FECHA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>          
-                                            <tr>
-                                                <td>1</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1"><i class="fa fa-edit"></i></button></td>
-                                                <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i></button></td>
-                                                <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal3"><i class="fa fa-file-pdf-o"></i></button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="table-responsive" id="dcontratos">
+                                    <!-- TABLA CONTRATOS -->
                                 </div>
                            </div>
-
-
+                        <!-- MODAL AGREGAR ARTEFACTO AL ALMACEN -->
                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -298,186 +285,41 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                         <h4 class="modal-title" id="myModalLabel">Artefactos</h4>
                                     </div>
-                                    <div class="modal-body">
-                                        <table>
-                                            <tbody>
-
-                                                <tr>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Codigo Contrato</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Codigo Artefacto</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td rowspan="2" >
-                                                        <img src="assets/img/find_user.png">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Descripcion</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Tasación</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Tipo</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Estado</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td rowspan="2">
-                                                        <div class="form-group">
-                                                            <label>Observaciones</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Conservacion</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                	<td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>
-                                                        <div class="form-group">
-                                                            <label>Modelo</label>
-                                                            <p class="form-control-static" >---</p>
-                                                        </div>
-                                                    </td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                    <td>&nbsp;&nbsp;&nbsp;</td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
+                                    <div id="dsartefacto" class="modal-body">
+                                        <!-- MOSTRAR DATOS DE ARTEFACTO -->
                                     </div>
 
                                     <div class="panel-body">
-                                         <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>CODIGO</th>
-                                                            <th>DESCRIPCION</th>
-                                                            <th>TASACION</th>
-                                                            <th>OBSERVACIONES</th>
-                                                            <th>TIPO</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody> 
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td><button type="button" class="btn btn-default"><i class="fa fa-eye"></i></button></td>
-                                                            <td><input type="checkbox"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div id="dartefactos" class="table-responsive">
+                                               <!-- TABLA ARTEFACTOS --> 
                                         </div>
-
-                                        <div class="row text-center ">
-                                            <label>Almacen*</label>
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            <select>
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
-                                            </select>
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                            &nbsp;
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Almacenar</button>
                                     </div>
 
+                                    <sql:query var="sqlAlm" dataSource="${cn}">
+                                        select * from almacen
+                                    </sql:query>
+                                    <div class="row text-center ">
+                                        <label>Almacen*</label>
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        <select id="selAlmacen">
+                                            <c:forEach  var="fila" items="${sqlAlm.rows}">
+                                                <option value="${fila.id}">${fila.descripcion}</option>
+                                            </c:forEach>
+                                        </select>
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        <button type="button" class="btn btn-primary" onclick="agregarAlmacen()" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Almacenar</button>
+                                    </div>
+                                        <br>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                     </div>
@@ -485,83 +327,28 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                                 </div>
                             </div>
                         </div>
-
+                        <!-- /. MODAL AGREGAR ARTEFACTO AL ALMACEN -->
+                        <!-- MODAL EDITAR CONTRATO -->
                         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form role="form">
+                                        <form role="form" action="setestado.jsp" method="post">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="myModalLabel">Contrato</h4>
                                         </div>
-                                        <div class="modal-body">
-                                            <table class="table">
-                                                <div class="form-group">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Fecha Inicio</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                            <td>
-                                                                <label>Interes</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Fecha Vencimiento</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                            <td>
-                                                                <label>Prestamo Maximo</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Dias de Empeño</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                            <td>
-                                                                <label>Nombre Cliente</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                        	<td>
-                                                                <label>Monto</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                            <td>
-                                                                <label>Estado</label>
-                                                                <select class="form-control">
-                                                                    <option>One Vale</option>
-                                                                    <option>Two Vale</option>
-                                                                    <option>Three Vale</option>
-                                                                    <option>Four Vale</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <label>Prestamo</label>
-                                                                <p class="form-control-static" /></p>
-                                                            </td>
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </div>
-                                            </table>
+                                        <div id="dmodificar" class="modal-body">
+                                            
                                         </div>
                                         	<div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-	                                            <button type="submit" class="btn btn-primary">Guardar</button>
+	                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+                        <!-- /. MODAL EDITAR CONTRATO -->
                         <!-- </div> -->
                     <!-- </div> -->
                     <!-- </div> -->
@@ -570,8 +357,8 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
                     <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-body">
-                                    <iframe style="height: 500px; width: 100%;"src="assets/files/CONT001.pdf"></iframe>
+                                <div id="pdfmodal" class="modal-body">
+                                    <!-- PDF -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -599,6 +386,7 @@ font-size: 16px;"> <label style="text-transform: uppercase">${sessionScope.usuar
     <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/tablas.js"></script>
     
    
 </body>
